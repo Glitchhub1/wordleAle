@@ -76,14 +76,21 @@ function leerIntento() {
     document.getElementById("guess-input").value = "";
     return intento;
 }
-
-
 function terminar(mensaje) {
     const INPUT = document.getElementById("guess-input");
     INPUT.disabled = true;
     const BOTON = document.getElementById("guess-button");
-    BOTON.disabled = true;
+    BOTON.disabled = false;
+    BOTON.textContent = "Jugar de nuevo";
+    BOTON.removeEventListener("click", reloadPage);
+
+    BOTON.addEventListener("click", function() {
+        location.reload(); 
+    });
     let contenedor = document.getElementById("guesses");
     contenedor.innerHTML = mensaje;
 }
+function reloadPage() {
+    location.reload(); // Recargar la página al hacer clic en "Reintentar"
+} 
 
