@@ -5,7 +5,8 @@ async function obtenerPalabraAleatoria() {
     const url = "https://random-word-api.herokuapp.com/word?length=5&lang=es";
     const response = await fetch(url);
     const data = await response.json();
-    return data[0].toUpperCase();
+    eliminartilde= data[0].normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    return eliminartilde.toUpperCase();
 }
 window.addEventListener("load", async () => {
     palabra = await obtenerPalabraAleatoria();
