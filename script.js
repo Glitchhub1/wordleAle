@@ -1,5 +1,5 @@
 let intentos = 5;
-let palabra = " ";
+let palabra = [];
 
 async function obtenerPalabraAleatoria() {
     const url = "https://random-word-api.herokuapp.com/word?length=5&lang=es";
